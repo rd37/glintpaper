@@ -142,12 +142,12 @@ The second Eclipse project includes the API, CLI and the image transfer service.
 \section{Deployment}
 
 \subsection{Service Deployment}
-It is recommended to deploy the glint service to the same secure machine that the Keystone and Glance services are running. This is because glint maintains a database of user name, passwords and authentication tokens in it's database. So it is important to keep glint on a secure machine. Once glint is installed, you can use it immediately via the CLI (aka glint client application).
+It is recommended to deploy the Glint service to the same secure machine that the Keystone and Glance services are running. This is because glint maintains a database of user name, passwords and authentication tokens in it's database. So it is important to keep glint on a secure machine. Once glint is installed, you can use it immediately via the CLI.
 
 Another deployment strategy is to also install the modified Horizon dashboard. This dashboard allows users of the local OpenStack site to add remote sites specific for themselves (i.e., other OpenStack sites the user has credentials on).  
 
 \subsection{Image Deployment}
-Figure~\ref{fig:glintfigure} depicts a basic deployment of an image using Glint with 3 OpenStack sites. Each OpenStack site is independent and has their own user and tenant managment. The credentials of each site is stored on Glint securely and used by the service when the image deployment needs to be changes.
+Figure~\ref{fig:glintfigure} depicts a basic deployment of an image using Glint with 3 OpenStack sites. Each OpenStack site is independent and has their own user and tenant management. The credentials of each site is stored on Glint securely and used by the service when the image deployment needs to be changed.
 
 \begin{figure}[ht]
 \begin{center}
@@ -156,7 +156,7 @@ Figure~\ref{fig:glintfigure} depicts a basic deployment of an image using Glint 
 \end{center}
 \end{figure}
 
-Glint is available on PyDev as required for deployment via StackForge for OpenStack integration. The lastest version is currently deployed for image distribution at the University of Victoria. 
+Glint is available on PyDev as required for deployment via StackForge for OpenStack integration. The latest version is currently deployed for image distribution at the University of Victoria. 
 
 %%% \newpage
 
