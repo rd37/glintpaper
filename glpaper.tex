@@ -87,7 +87,7 @@ Glint is designed to operate as an OpenStack service. The Glint service is compr
 
 There are 3 key functions the Glint service provides; Glint allows users to create remote sites representing a remote glance repository; Glint users can add their remote repository credentials for Glint management; Finally, Glint manages image distribution as specified by the user. Image management is the most complicated operation provided by Glint. Figure~\ref{fig:glintseqdiag} depicts the process of moving an image between two sites. 
 
-\begin{figure}[h]
+\begin{figure}[H]
 \begin{center}
 \includegraphics[width=36pc]{images/glintseqdiag.pdf}
 \caption{\label{fig:glintseqdiag}Image Distribution Design}
@@ -96,25 +96,25 @@ There are 3 key functions the Glint service provides; Glint allows users to crea
 
 Glint is designed around OpenStack's Keystone service for user authenication. This design requires a user to have an OpenStack account on the site that Glint is using as its primary host. Therefore, the user must login and register with Glint which will then use Keystone to check if the user is valid (c.f., Figure~\ref{fig:glintlogin}). If the user is valid, Keystone will generate an authentication token that the glint service persists. User requests are then performed on behalf of glint using the token for authentication.
 
-The concepts of remote OpenStack sites and remote site credentials is essential in the design of glint. Users can add remote sites as a source and destination of images. Site credentials can then be added so Glint can use the site without having to request input from the user every time the site is accessed. Figure~\ref{fig:glintsitecred} depicts the user adding a remote site to the glint service.
-
-OpenStack's Glance service provides the image copying and deleting functionality. Glint relies on this service to move images between remote sites. Figure~\ref{fig:glintdist} depicts the image distribution process. It requires the user to select which images they want on each site, once the user is happy they can save the new configuration. Glint proceeds to create a new thread for each image transfer or delete image operation. 
-
-\begin{figure}[h]
+\begin{figure}[H]
 \begin{center}
 \includegraphics[width=36pc]{images/glintlogin.pdf}
 \caption{\label{fig:glintlogin}Glint User Login}
 \end{center}
 \end{figure}
 
-\begin{figure}[h]
+The concepts of remote OpenStack sites and remote site credentials is essential in the design of glint. Users can add remote sites as a source and destination of images. Site credentials can then be added so Glint can use the site without having to request input from the user every time the site is accessed. Figure~\ref{fig:glintsitecred} depicts the user adding a remote site to the glint service.
+
+\begin{figure}[H]
 \begin{center}
 \includegraphics[width=36pc]{images/glintsitecred.pdf}
 \caption{\label{fig:glintsitecred}Glint - Create remote site and add remote credential}
 \end{center}
 \end{figure}
 
-\begin{figure}[h]
+OpenStack's Glance service provides the image copying and deleting functionality. Glint relies on this service to move images between remote sites. Figure~\ref{fig:glintdist} depicts the image distribution process. It requires the user to select which images they want on each site, once the user is happy they can save the new configuration. Glint proceeds to create a new thread for each image transfer or delete image operation. 
+
+\begin{figure}[H]
 \begin{center}
 \includegraphics[width=36pc]{images/glintdist.pdf}
 \caption{\label{fig:glintdist}Glint - Reconfigure Image Distribution}
