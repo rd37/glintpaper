@@ -122,91 +122,41 @@ OpenStack's Glance service provides the image copying and deleting functionality
 
 \section{Implementation}
 
-Glint uses Django, a Python web framework, and the Data-Driven Documents (D3) 
-JavaScript library toprovide users with an interface to manage their images and clouds. 
-To communicate with the clouds, ituses Openstack’s Glance and Keystone API and Amazon’s Boto API. 
-Python scripts use these API toolsto allow Glint to authenticate the users’ credentials with the 
-cloud and then deploy and delete images fromeach cloud site. 
-This design is illustrated in Figure 1
+Glint design and implementation is done within the OpenStack framework. There are 4 main components that were developed and deployed to work with OpenStack. The image transfer component, the API, the CLI and the horizon webpage elements. 
 
+The image transfer component is an HTTP service that uses Openstack's Keystone and Glance services. The objective of the service is to integrate remote OpenStack clouds for the purposes of moving images seamlessly amoung them. The implementation is written in the python programming language and uses OpenStack's python APIs provided to use the Glance and Keystone services.
 
+The API (Application Programming Interface) is wrtiten in python and provides users of the Glint service to construct their own applications ontop of Glint. There are plans to provide java and c/c++ APIs in the future.
 
-Django and D3 essentially create the server back-end and graphical interface front-end of the web service
-respectively. 
-These components use JSON formatted messages to send requests and responses to each other,such 
-as getting the latest list of deployments or updating the newest list of deployments. 
-Both parts of theinterface are well recognized products, as Openstack Horizon utilizes Django 
-and D3 to design dashboards[6].
+The CLI (Command Line Interface) is written in python and uses the API. The CLI is the first application to use the Glint API. The CLI provides all the functionality that is provided by the modified Horizon dashboard.
 
-The basis for Django relies on models, where each user’s images, sites, and deployments are all 
-stored ina model database [3]. 
-For example, once an image and cloud site are stored in the database, the image could
-be manipulated to deploy a new image onto a site, and then that new deployment is saved 
-in the database forthat user. 
-This is all done with Django’s built in Python API, but this database can be managed manually
-using SQL queries as well [3].
+The modifed Horizon dashboard is a set of added webpages to provide a friendly user interface with the familiar Horizon dashboard. The pages are added to the images management tab that Horizon already provides. 
 
-The web service is designed so that each user has their own file system on the server where Django is
-able to grab images and credential files, and there are measures to prevent the user from having duplicate images. 
-Django also provides its own lightweight development server and a customizable administration
-page, where the administrator can view and manipulate all users’ models with Django’s interface. 
-From the3administration page, users can be given certain privileges to what they can access around the website [3],
-and they can upload image and credential files on that page too instead of the Glint homepage.
+The code for the 4 main components is managed within 2 Eclipse projects using the PyDev and Git plugins. The PyDev plugin uderstands the semantics of python and allows the GUI to provide proper functionality that is relavent for python development. The Git plugin allows the use of Git and GitHub as our versioning system to track changes and maintain the projects. 
 
-The front-end of Glint is designed with D3, a Javascript library that presents the user interface and data
-saved in Django for the user in an graphical representation. D3 still uses the basic web standards of HTML,
-SVG, and CSS, but it utilizes functions which transform the user’s data to be interactive and have animated
-transitions. 
+The first Eclipse project is a modified version of OpenStack's Horizon dashboard. This dashboard includes pages relevant to image distribution. Webpages in Horizon are described with python classes and use Django's powerful templating engine to provide a uniform presentation to the user. 
 
-These functions involve entering and exiting a selection of one’s data to modify individual orsets of nodes of data [2]. 
-The Django and D3 tools thus provide the user with an appealing interface forusing Glint.
+The second Eclipse project includes the API, CLI and the image transfer service. These are all developed in python and can use either Django or Paste to serve HTTP requests. Django-PyDev plugin is used for the project and provides django related functions to manage the HTTP service componet of the software. An API is provided for python to extend the functionality of the Glint service. The CLI is the first extension of the service that uses the API. The CLI is written in python and takes advantage of the ArgParse python module. The CLI and the modified Horizon interface are the two methods currently offered to interact with the image distribution service. The CLI and the Horizon interface are independant of each other, for example you can use the service with the CLI without the modified Horizon dashboard.
 
 
 \section{Deployment}
 
-With this interface, deploying an image onto a cloud is designed to be as simple as possible for the user. 
-The user first uploads either an image file or a website address to a image file. 
-To save an Openstack site, the user uploads the RC file and their password, and for 
-Amazon Elastic Compute Cloud (EC2) sites, the useruploads their credentials to gain access to all EC2 regions. 
-There is one extra step which requires the user to select their image to be bundled before being 
-able to deploy onto EC2 sites. After the user has completed these steps, he or she is then ready to 
-start managing all their images to be distributed to cloud sites.
+\subsection{Service Deployment}
+It is recommended to deploy the glint service to the same secure machine that the Keystone and Glance services are running. This is becuase glint maintains a database of username, passwords and authenication tokens in it's database. So it is important to keep glint on a secure machine. Once glint is installed, you can use it immediately via the CLI (aka glint client applicaiton).
 
-Once the user has selected images to be 
-deployed or deleted, the front-end will build the list in a JSON format by using a JSON message factory 
-and give it an ‘update’ operation. 
-Then it will send the list in an HTTP request to the Django server side, which then parses the JSON 
-message and does the operation (inthis case, it is to update the current list of deployments). 
-That ‘update’ message tells the back-end to filterthe deployments to either be deployed or deleted from 
-Openstack or EC2.
+Another deployment strategy is to also install the modified Horizon dashboard. This dashboard allows users to of the local OpenStack site to use the service to add remote sites specific for themselves (i.e., other OpenStack sites the user has credentials on).  
 
-When deploying on or deleting off Openstack, Glint uses Keystone and Glance Python API to obtain 
-and gain access with security tokens to the Openstack cloud. 
-Keystone represents the Openstack IdentityService by obtaining and verifying tokens using the values in 
-the user’s RC file that was supplied earlier.
-Tokens are also saved in the user’s database, and the web service will 
-automatically update the token if it isexpired. Glance provides the tools for obtaining lists, creating, and 
-deleting images on Openstack [5].
-
-With EC2, Glint uses Boto, a Python interface for using Amazon Web Service tools. 
-Boto is able to create and delete buckets to hold bundled images in Amazon’s Simple Storage Service (S3). 
-Once the userhas selected a bundled image to deploy, it will upload the bundle to S3 
-and then register the Amazon Machine Images (AMI) with EC2 [1]. 
-And if the user is deleting an image, it will deregister the AMI and delete the bucket 
-and its contents from S3.After Glint is finished updating the deployments it will store the image, site, 
-and the UUID (or AMI idfor EC2 AMIs) from the image on the cloud in a deployed image model in the database. 
-Then it sends thenew list back to the front-end in JSON. The HTTP utility there would get that response, 
-parse the JSON message again, and present the new data to the user in D3.
-
+\subsection{Image Deployment}
+Figure~\ref{fig:glintfigure} depicts a basic deployment of an image using Glint with 3 OpenStack sites. Each OpenStack site is independent and has their own user and tenant managment. The credentials of each site is stored on Glint securely and used by the service when the image deployment needs to be changes.
 
 \begin{figure}[ht]
 \begin{center}
 \includegraphics[width=36pc]{GlintFigure.eps}
-\caption{\label{fig:glintfigure}An overview 
-}
+\caption{\label{fig:glintfigure}An overview }
 \end{center}
 \end{figure}
 
+Glint is available on PyDev as required for deployment via StackForge for OpenStack integration. The lastest version is currently deployed for image distribution at the University of Victoria. 
 
 %%% \newpage
 
