@@ -93,11 +93,11 @@ There are 3 key functions the Glint service provides; Glint allows users to crea
 \end{center}
 \end{figure}
 
-Glint is designed around OpenStack's Keystone service for user authenication. This design requires a user to have an OpenStack account on the site that Glint is using as its primary host. Therefore the user must login and register with Glint which will then use Keystone to check if the user is valid (c.f., Figure~\ref{fig:glintlogin}). If the user is valid, Keystone will generate an authenication token that the glint service maintains. User requests are then performed on behalf of glint using the token for authentication.
+Glint is designed around OpenStack's Keystone service for user authenication. This design requires a user to have an OpenStack account on the site that Glint is using as its primary host. Therefore the user must login and register with Glint which will then use Keystone to check if the user is valid (c.f., Figure~\ref{fig:glintlogin}). If the user is valid, Keystone will generate an authentication token that the glint service maintains. User requests are then performed on behalf of glint using the token for authentication.
 
-The concepts of remote OpenStack sites and remote site credentials is essential in the design of glint. Users can add remote sites as a source and destination of images. Site credentials can then be added so Glint can use the site without having to request input from the user everytime the site is accessed. Figure~\ref{fig:glintsitecred} depicts the user added a remote site to the glint service.
+The concepts of remote OpenStack sites and remote site credentials is essential in the design of glint. Users can add remote sites as a source and destination of images. Site credentials can then be added so Glint can use the site without having to request input from the user every time the site is accessed. Figure~\ref{fig:glintsitecred} depicts the user added a remote site to the glint service.
 
-OpenStack's Glance service provides the image copying and deleting functionality. Glint relies on this service to move images around remote sites. Figure~\ref{fig:glintdist} depicts the image distrubtion process. It requires the user to select which images they want on each site, once the user is happy they can save the new configuration. Glint proceeds to create a new thread for each transfer or delete operation. 
+OpenStack's Glance service provides the image copying and deleting functionality. Glint relies on this service to move images around remote sites. Figure~\ref{fig:glintdist} depicts the image distribution process. It requires the user to select which images they want on each site, once the user is happy they can save the new configuration. Glint proceeds to create a new thread for each transfer or delete operation. 
 
 \begin{figure}[h]
 \begin{center}
@@ -122,27 +122,27 @@ OpenStack's Glance service provides the image copying and deleting functionality
 
 \section{Implementation}
 
-Glint design and implementation is done within the OpenStack framework. There are 4 main components that were developed and deployed to work with OpenStack. The image transfer component, the API, the CLI and the horizon webpage elements. 
+Glint design and implementation is done within the OpenStack framework. There are 4 main components that were developed and deployed to work with OpenStack. The image transfer component, the API, the CLI and the horizon web page elements. 
 
-The image transfer component is an HTTP service that uses Openstack's Keystone and Glance services. The objective of the service is to integrate remote OpenStack clouds for the purposes of moving images seamlessly amoung them. The implementation is written in the python programming language and uses OpenStack's python APIs provided to use the Glance and Keystone services.
+The image transfer component is an HTTP service that uses Openstack's Keystone and Glance services. The objective of the service is to integrate remote OpenStack clouds for the purposes of moving images seamlessly among them. The implementation is written in the python programming language and uses OpenStack's python APIs provided to use the Glance and Keystone services.
 
-The API (Application Programming Interface) is wrtiten in python and provides users of the Glint service to construct their own applications ontop of Glint. There are plans to provide java and c/c++ APIs in the future.
+The API (Application Programming Interface) is wrtiten in python and provides users of the Glint service to construct their own applications ontop of Glint. There are plans to provide Java and C/C++ APIs in the future.
 
 The CLI (Command Line Interface) is written in python and uses the API. The CLI is the first application to use the Glint API. The CLI provides all the functionality that is provided by the modified Horizon dashboard.
 
-The modifed Horizon dashboard is a set of added webpages to provide a friendly user interface with the familiar Horizon dashboard. The pages are added to the images management tab that Horizon already provides. 
+The modifed Horizon dashboard is a set of added web pages to provide a friendly user interface with the familiar Horizon dashboard. The pages are added to the images management tab that Horizon already provides. 
 
 The code for the 4 main components is managed within 2 Eclipse projects using the PyDev and Git plugins. The PyDev plugin uderstands the semantics of python and allows the GUI to provide proper functionality that is relavent for python development. The Git plugin allows the use of Git and GitHub as our versioning system to track changes and maintain the projects. 
 
-The first Eclipse project is a modified version of OpenStack's Horizon dashboard. This dashboard includes pages relevant to image distribution. Webpages in Horizon are described with python classes and use Django's powerful templating engine to provide a uniform presentation to the user. 
+The first Eclipse project is a modified version of OpenStack's Horizon dashboard. This dashboard includes pages relevant to image distribution. Web pages in Horizon are described with python classes and use Django's powerful templating engine to provide a uniform presentation to the user. 
 
-The second Eclipse project includes the API, CLI and the image transfer service. These are all developed in python and can use either Django or Paste to serve HTTP requests. Django-PyDev plugin is used for the project and provides django related functions to manage the HTTP service componet of the software. An API is provided for python to extend the functionality of the Glint service. The CLI is the first extension of the service that uses the API. The CLI is written in python and takes advantage of the ArgParse python module. The CLI and the modified Horizon interface are the two methods currently offered to interact with the image distribution service. The CLI and the Horizon interface are independant of each other, for example you can use the service with the CLI without the modified Horizon dashboard.
+The second Eclipse project includes the API, CLI and the image transfer service. These are all developed in python and can use either Django or Paste to serve HTTP requests. Django-PyDev plugin is used for the project and provides Django related functions to manage the HTTP service component of the software. An API is provided for python to extend the functionality of the Glint service. The CLI is the first extension of the service that uses the API. The CLI is written in python and takes advantage of the ArgParse python module. The CLI and the modified Horizon interface are the two methods currently offered to interact with the image distribution service. The CLI and the Horizon interface are independent of each other, for example you can use the service with the CLI without the modified Horizon dashboard.
 
 
 \section{Deployment}
 
 \subsection{Service Deployment}
-It is recommended to deploy the glint service to the same secure machine that the Keystone and Glance services are running. This is becuase glint maintains a database of username, passwords and authenication tokens in it's database. So it is important to keep glint on a secure machine. Once glint is installed, you can use it immediately via the CLI (aka glint client applicaiton).
+It is recommended to deploy the glint service to the same secure machine that the Keystone and Glance services are running. This is because glint maintains a database of user name, passwords and authentication tokens in it's database. So it is important to keep glint on a secure machine. Once glint is installed, you can use it immediately via the CLI (aka glint client application).
 
 Another deployment strategy is to also install the modified Horizon dashboard. This dashboard allows users of the local OpenStack site to add remote sites specific for themselves (i.e., other OpenStack sites the user has credentials on).  
 
