@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013) (format=pdflatex 2013.5.30)  12 MAY 2015 15:10
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013) (format=pdflatex 2013.5.30)  12 MAY 2015 15:27
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -220,25 +220,13 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 
 [2 <./images/glintdesign.pdf>] [3 <./images/glintseqdiag.pdf> <./images/glintlo
 gin.pdf> <./images/glintsitecred.pdf>] [4 <./images/glintdist.pdf>]
-Package epstopdf Info: Source file: <GlintFigure.eps>
-(epstopdf)                    date: 2015-04-29 14:09:47
-(epstopdf)                    size: 1972650 bytes
-(epstopdf)             Output file: <GlintFigure-eps-converted-to.pdf>
-(epstopdf)                    date: 2015-05-04 09:09:57
-(epstopdf)                    size: 69769 bytes
-(epstopdf)             Command: <repstopdf --outfile=GlintFigure-eps-converted-
-to.pdf GlintFigure.eps>
-(epstopdf)             \includegraphics on input line 154.
-Package epstopdf Info: Output file is already uptodate.
+<images/archglint.pdf, id=57, 512.91624pt x 381.425pt>
+File: images/archglint.pdf Graphic file (type pdf)
 
-<GlintFigure-eps-converted-to.pdf, id=57, 608.2725pt x 397.485pt>
-File: GlintFigure-eps-converted-to.pdf Graphic file (type pdf)
-
-<use GlintFigure-eps-converted-to.pdf>
-Package pdftex.def Info: GlintFigure-eps-converted-to.pdf used on input line 15
-4.
-(pdftex.def)             Requested size: 432.0pt x 282.30122pt.
- [5 <./GlintFigure-eps-converted-to.pdf>] [6] (./glpaper.aux)
+<use images/archglint.pdf>
+Package pdftex.def Info: images/archglint.pdf used on input line 154.
+(pdftex.def)             Requested size: 432.0pt x 321.25618pt.
+ [5 <./images/archglint.pdf>] [6] (./glpaper.aux)
 
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 0.78749pt have occurred.
@@ -251,8 +239,8 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 1901 strings out of 493315
- 26016 string characters out of 6137904
+ 1900 strings out of 493315
+ 25962 string characters out of 6137904
  89502 words of memory out of 5000000
  5353 multiletter control sequences out of 15000+600000
  6920 words of font info for 25 fonts, out of 8000000 for 9000
@@ -267,10 +255,10 @@ ocal/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/loc
 al/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/loca
 l/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmti9.pfb></usr/local/
 texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt9.pfb>
-Output written on glpaper.pdf (6 pages, 281647 bytes).
+Output written on glpaper.pdf (6 pages, 259325 bytes).
 PDF statistics:
- 99 PDF objects out of 1000 (max. 8388607)
- 69 compressed objects within 1 object stream
+ 120 PDF objects out of 1000 (max. 8388607)
+ 87 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  31 words of extra memory for PDF output out of 10000 (max. 10000000)
 
