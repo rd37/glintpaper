@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013) (format=pdflatex 2013.5.30)  12 MAY 2015 13:28
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013) (format=pdflatex 2013.5.30)  12 MAY 2015 15:10
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -168,7 +168,7 @@ LaTeX Font Warning: Font shape `OT1/cmr/bx/n' in size <18.06749> not available
 
 {/usr/local/texlive/2013/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
 
-LaTeX Warning: Reference `fig:glintdesign.pdf' on page 2 undefined on input lin
+LaTeX Warning: Reference `fig:glintfigure.pdf' on page 2 undefined on input lin
 e 78.
 
 <images/glintdesign.pdf, id=13, 616.3025pt x 197.73875pt>
@@ -257,7 +257,7 @@ Here is how much of TeX's memory you used:
  5353 multiletter control sequences out of 15000+600000
  6920 words of font info for 25 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
- 37i,5n,23p,831b,309s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 37i,5n,23p,893b,309s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
 ></usr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb>
 </usr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb></
@@ -267,7 +267,7 @@ ocal/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/loc
 al/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/loca
 l/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmti9.pfb></usr/local/
 texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt9.pfb>
-Output written on glpaper.pdf (6 pages, 281160 bytes).
+Output written on glpaper.pdf (6 pages, 281647 bytes).
 PDF statistics:
  99 PDF objects out of 1000 (max. 8388607)
  69 compressed objects within 1 object stream
