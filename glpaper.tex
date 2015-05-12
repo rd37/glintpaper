@@ -75,7 +75,7 @@ The source code is available from the Git repository \cite{glint}.
 
 
 \section{Design}
-Glint is designed to operate as an OpenStack service. The glint service is comprised of 4 components. The service component, which actually pushes and pulls data from different Glance repositories; The GUI component, which provides a user friendly interface integrated with the OpenStack's Horizon dashboard; The Command Line Interface component, which allows users to try out glint without having to change or add another dashboard; And the Application Programming Interface, which allow developers to create their own tools. Figure ~\ref{fig:glintdesign.pdf} depicts a software component model of glint and it's integration with OpenStack. 
+Glint is designed to operate as an OpenStack service. The Glint service is comprised of 4 components. The service component, which actually pushes and pulls data from different Glance repositories; The GUI component, which provides a user friendly interface integrated with OpenStack's Horizon dashboard; The Command Line Interface component, which allows users to try out glint without having to change or add another dashboard; And the Application Programming Interface, which allow developers to create their own tools. Figure~\ref{fig:glintfigure.pdf} depicts a software component model of glint and it's integration with OpenStack. 
 
 \begin{figure}[ht]
 \begin{center}
@@ -84,7 +84,7 @@ Glint is designed to operate as an OpenStack service. The glint service is compr
 \end{center}
 \end{figure}
 
-There are 3 main services Glint provides; Glint allows users to create remote sites representing a remote glance repository; Glint users can add their remote repository credentials for Glint management; Finally, Glint uses a multithreaded manager to manage image distribution. Image management is the most complicated operation provided by Glint. Figure~\ref{fig:glintseqdiag} depicts the process of moving an image between two sites. 
+There are 3 key functions the Glint service provides; Glint allows users to create remote sites representing a remote glance repository; Glint users can add their remote repository credentials for Glint management; Finally, Glint uses a multithreaded manager to manage image distribution. Image management is the most complicated operation provided by Glint. Figure~\ref{fig:glintseqdiag} depicts the process of moving an image between two sites. 
 
 \begin{figure}[h]
 \begin{center}
@@ -144,7 +144,7 @@ The second Eclipse project includes the API, CLI and the image transfer service.
 \subsection{Service Deployment}
 It is recommended to deploy the glint service to the same secure machine that the Keystone and Glance services are running. This is becuase glint maintains a database of username, passwords and authenication tokens in it's database. So it is important to keep glint on a secure machine. Once glint is installed, you can use it immediately via the CLI (aka glint client applicaiton).
 
-Another deployment strategy is to also install the modified Horizon dashboard. This dashboard allows users to of the local OpenStack site to use the service to add remote sites specific for themselves (i.e., other OpenStack sites the user has credentials on).  
+Another deployment strategy is to also install the modified Horizon dashboard. This dashboard allows users of the local OpenStack site to add remote sites specific for themselves (i.e., other OpenStack sites the user has credentials on).  
 
 \subsection{Image Deployment}
 Figure~\ref{fig:glintfigure} depicts a basic deployment of an image using Glint with 3 OpenStack sites. Each OpenStack site is independent and has their own user and tenant managment. The credentials of each site is stored on Glint securely and used by the service when the image deployment needs to be changes.
