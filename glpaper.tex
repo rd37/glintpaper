@@ -1,6 +1,7 @@
 \RequirePackage{lineno}
 \documentclass[a4paper]{jpconf}
 \usepackage{graphicx}
+\usepackage{float}
 \begin{document}
 
 \linenumbers
@@ -149,7 +150,7 @@ Another deployment strategy is to also install the modified Horizon dashboard. T
 \subsection{Image Deployment}
 Figure~\ref{fig:glintfigure} depicts a basic deployment of an image using Glint with 3 OpenStack sites. Each OpenStack site is independent and has their own user and tenant management. The credentials of each site is stored on Glint securely and used by the service when the image deployment needs to be changed. For example, the user requested a deployment change such that Image A is to be duplicated from Site 1 to Site2 and Site3. Glint will first authenticate against Site1 using Keystone, then perform a copy operation for Site 2 and Site 3. For a successful copy operation, Glint will first authenticate the Site with credentials found in it's database for that site.
 
-\begin{figure}[ht]
+\begin{figure}[H]
 \begin{center}
 \includegraphics[width=36pc]{images/archglint.pdf}
 \caption{\label{fig:glintfigure}Image Distribution }

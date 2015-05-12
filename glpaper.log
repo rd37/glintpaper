@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013) (format=pdflatex 2013.5.30)  12 MAY 2015 15:27
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013) (format=pdflatex 2013.5.30)  12 MAY 2015 15:35
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -76,38 +76,45 @@ Package: ltxcmds 2011/11/09 v1.22 LaTeX kernel commands for general use (HO)
 \Gin@req@height=\dimen109
 \Gin@req@width=\dimen110
 )
-(./glpaper.aux
+(/usr/local/texlive/2013/texmf-dist/tex/latex/float/float.sty
+Package: float 2001/11/08 v1.3d Float enhancements (AL)
+\c@float@type=\count96
+\float@exts=\toks16
+\float@box=\box27
+\@float@everytoks=\toks17
+\@floatcapt=\box28
+) (./glpaper.aux
 
 LaTeX Warning: Label `fig:glintfigure' multiply defined.
 
 )
 \openout1 = `glpaper.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 4.
-LaTeX Font Info:    ... okay on input line 4.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 4.
-LaTeX Font Info:    ... okay on input line 4.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 4.
-LaTeX Font Info:    ... okay on input line 4.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 4.
-LaTeX Font Info:    ... okay on input line 4.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 4.
-LaTeX Font Info:    ... okay on input line 4.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 4.
-LaTeX Font Info:    ... okay on input line 4.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 5.
+LaTeX Font Info:    ... okay on input line 5.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 5.
+LaTeX Font Info:    ... okay on input line 5.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 5.
+LaTeX Font Info:    ... okay on input line 5.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 5.
+LaTeX Font Info:    ... okay on input line 5.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 5.
+LaTeX Font Info:    ... okay on input line 5.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 5.
+LaTeX Font Info:    ... okay on input line 5.
  (/usr/local/texlive/2013/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count96
+\scratchcounter=\count97
 \scratchdimen=\dimen111
-\scratchbox=\box27
-\nofMPsegments=\count97
-\nofMParguments=\count98
-\everyMPshowfont=\toks16
-\MPscratchCnt=\count99
+\scratchbox=\box29
+\nofMPsegments=\count98
+\nofMParguments=\count99
+\everyMPshowfont=\toks18
+\MPscratchCnt=\count100
 \MPscratchDim=\dimen112
-\MPnumerator=\count100
-\makeMPintoPDFobject=\count101
-\everyMPtoPDFconversion=\toks17
+\MPnumerator=\count101
+\makeMPintoPDFobject=\count102
+\everyMPtoPDFconversion=\toks19
 ) (/usr/local/texlive/2013/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
 Package: pdftexcmds 2011/11/29 v0.20 Utility functions of pdfTeX for LuaTeX (HO
 )
@@ -158,31 +165,31 @@ e
 ))
 
 LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <18.06749> not available
-(Font)              size <17.28> substituted on input line 8.
+(Font)              size <17.28> substituted on input line 9.
 
 
 LaTeX Font Warning: Font shape `OT1/cmr/bx/n' in size <18.06749> not available
-(Font)              size <17.28> substituted on input line 8.
+(Font)              size <17.28> substituted on input line 9.
 
 [1
 
 {/usr/local/texlive/2013/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
 
 LaTeX Warning: Reference `fig:glintfigure.pdf' on page 2 undefined on input lin
-e 78.
+e 79.
 
 <images/glintdesign.pdf, id=13, 616.3025pt x 197.73875pt>
 File: images/glintdesign.pdf Graphic file (type pdf)
 
 <use images/glintdesign.pdf>
-Package pdftex.def Info: images/glintdesign.pdf used on input line 82.
+Package pdftex.def Info: images/glintdesign.pdf used on input line 83.
 (pdftex.def)             Requested size: 432.0pt x 138.60928pt.
 
 <images/glintseqdiag.pdf, id=14, 953.5625pt x 542.025pt>
 File: images/glintseqdiag.pdf Graphic file (type pdf)
 
 <use images/glintseqdiag.pdf>
-Package pdftex.def Info: images/glintseqdiag.pdf used on input line 91.
+Package pdftex.def Info: images/glintseqdiag.pdf used on input line 92.
 (pdftex.def)             Requested size: 432.0pt x 245.56311pt.
 
 
@@ -192,7 +199,7 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 File: images/glintlogin.pdf Graphic file (type pdf)
 
 <use images/glintlogin.pdf>
-Package pdftex.def Info: images/glintlogin.pdf used on input line 104.
+Package pdftex.def Info: images/glintlogin.pdf used on input line 105.
 (pdftex.def)             Requested size: 432.0pt x 95.49677pt.
 
 
@@ -202,7 +209,7 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 File: images/glintsitecred.pdf Graphic file (type pdf)
 
 <use images/glintsitecred.pdf>
-Package pdftex.def Info: images/glintsitecred.pdf used on input line 111.
+Package pdftex.def Info: images/glintsitecred.pdf used on input line 112.
 (pdftex.def)             Requested size: 432.0pt x 122.78156pt.
 
 
@@ -212,7 +219,7 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 File: images/glintdist.pdf Graphic file (type pdf)
 
 <use images/glintdist.pdf>
-Package pdftex.def Info: images/glintdist.pdf used on input line 118.
+Package pdftex.def Info: images/glintdist.pdf used on input line 119.
 (pdftex.def)             Requested size: 432.0pt x 150.06635pt.
 
 
@@ -224,7 +231,7 @@ gin.pdf> <./images/glintsitecred.pdf>] [4 <./images/glintdist.pdf>]
 File: images/archglint.pdf Graphic file (type pdf)
 
 <use images/archglint.pdf>
-Package pdftex.def Info: images/archglint.pdf used on input line 154.
+Package pdftex.def Info: images/archglint.pdf used on input line 155.
 (pdftex.def)             Requested size: 432.0pt x 321.25618pt.
  [5 <./images/archglint.pdf>] [6] (./glpaper.aux)
 
@@ -239,13 +246,13 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 1900 strings out of 493315
- 25962 string characters out of 6137904
- 89502 words of memory out of 5000000
- 5353 multiletter control sequences out of 15000+600000
+ 1960 strings out of 493315
+ 26753 string characters out of 6137904
+ 90869 words of memory out of 5000000
+ 5409 multiletter control sequences out of 15000+600000
  6920 words of font info for 25 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
- 37i,5n,23p,893b,309s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 37i,5n,23p,893b,311s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
 ></usr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb>
 </usr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb></
@@ -255,7 +262,7 @@ ocal/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/loc
 al/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/loca
 l/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmti9.pfb></usr/local/
 texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt9.pfb>
-Output written on glpaper.pdf (6 pages, 259325 bytes).
+Output written on glpaper.pdf (6 pages, 259628 bytes).
 PDF statistics:
  120 PDF objects out of 1000 (max. 8388607)
  87 compressed objects within 1 object stream
