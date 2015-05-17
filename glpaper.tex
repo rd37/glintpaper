@@ -16,64 +16,21 @@ M.~Paterson, R.J~Sobie, R.~Taylor}
 \ead{rsobie@uvic.ca}
 
 \begin{abstract}
-The use of cloud computing is becoming widespread in the HEP community.  
-In many instances, individual clouds are being federated to appear as a single
-infrastructure that can be connected, for example, to the WLCG.
-For a small number of clouds, it is relatively easy to manage the virtual
-machine images on all the sites.  
-However, as the number of clouds increases, then keeping track of the images
-requires a more robust management system.
-Glint is designed to manage virtual machine images on OpenStack clouds.
-Glint makes it easy to distribute images on multiple clouds in a reliable and
-error free manner. 
+The use of cloud computing is becoming widespread in the HEP community. In many instances, individual clouds are being federated to appear as a single infrastructure that can be connected, for example, to the WLCG. For a small number of clouds, it is relatively easy to manage the virtual machine images on all the sites. However, as the number of clouds increases, then keeping track of the images requires a more robust management system. Glint is designed to manage virtual machine images on OpenStack clouds. Glint makes it easy to distribute images on multiple clouds in a reliable and error free manner. 
 \end{abstract}
 
 \section{Introduction}
 
-The use of clouds in HEP is becoming a significant source of computing resources 
-for MC production and data analysis.
-There are a number of compelling reasons for the migration to clouds:
-clouds give researchers quick and dynamic access to unused or opportunistic
-resources;  sites find it easier to manage multiple project that have their
-own specific software requirements; and cloud technology is support by a
-large international community of developers.
+The use of clouds in HEP is becoming a significant source of computing resources for MC production and data analysis.
+There are a number of compelling reasons for the migration to clouds: clouds give researchers quick and dynamic access to unused or opportunistic resources;  sites find it easier to manage multiple project that have their own specific software requirements; and cloud technology is support by a large international community of developers.
 
-If a cloud site is colocated with other traditional HEP computing resources or
-the resource has been transformed to a cloud, then it can be viewed as another
-grid site on the WLCG.
-Utilizing opportunistic resources (private non-HEP or commercial) can be done
-by directly linking the cloud to the project workload management system (for example,
-VMDIRAC \cite{vmdirac}).
-Alternatively, one can unify the clouds into a single infrastructure (``grid of clouds'').
-The HTCondor/CloudScheduler \cite{chep:gable-talk} or VAC/VCycle \cite{chep:vac-vcycle}
-were presented at this conference and are two methods for unifying clouds.
+If a cloud site is colocated with other traditional HEP computing resources or the resource has been transformed to a cloud, then it can be viewed as another grid site on the WLCG. Utilizing opportunistic resources (private non-HEP or commercial) can be done by directly linking the cloud to the project workload management system (for example, VMDIRAC \cite{vmdirac}). Alternatively, one can unify the clouds into a single infrastructure (``grid of clouds''). The HTCondor/CloudScheduler \cite{chep:gable-talk} or VAC/VCycle \cite{chep:vac-vcycle} were presented at this conference and are two methods for unifying clouds.
  
-We have established a distributed cloud system using HTCondor/CloudScheduler for
-particle physics and astronomy applications \cite{hpcs:cloudpaper, sobie-nyc-cloud}.
-The distributed cloud is currently used by the ATLAS \cite{ryan-chep} 
-and Belle-II \cite{sobie-chep} experiments.
-The system is designed to boot user or project-specific virtual machines (VM's),
-making it easy to run HTC batch workloads from multiple projects.
+We have established a distributed cloud system using HTCondor/CloudScheduler for particle physics and astronomy applications \cite{hpcs:cloudpaper, sobie-nyc-cloud}. The distributed cloud is currently used by the ATLAS \cite{ryan-chep} and Belle-II \cite{sobie-chep} experiments. The system is designed to boot user or project-specific virtual machines (VM's), making it easy to run HTC batch workloads from multiple projects.
 
-The majority of the clouds today are using OpenStack software.
-OpenStack clouds require that a user boot an image from the local Glance repository.
-If a user wants to use multiple clouds, either manually or with our 
-HTCondor/CloudScheduler system, then the image must be manually uploaded 
-to the Glance repository of each cloud.
-Transfering VM images manually becomes tedious and error prone as one gets access
-to more IaaS clouds.
-We realized that we required a better way of managing the VM images and we 
-developed Glint help us manage VM images over multiple OpenStack clouds.
+The majority of the clouds today are using OpenStack software. OpenStack clouds require that a user boot an image from the local Glance repository. If a user wants to use multiple clouds, either manually or with our HTCondor/CloudScheduler system, then the image must be manually uploaded to the Glance repository of each cloud. Transferring VM images manually becomes tedious and error prone as one gets access to more IaaS clouds. We realized that we required a better way of managing the VM images and we developed Glint help us manage VM images over multiple OpenStack clouds.
 
-The Glint service is designed for OpenStack clouds and the Glance repository
-with a pluggable architecture to allow support for different cloud types.
-Through a web browser or command-line interface, the user can identify clouds 
-and control the distribution of images.
-Glint is currently used with the distributed cloud systems for ATLAS and Belle-II.
-In this paper, we describe the design and implementation of Glint.
-The source code is available from the Git repository \cite{glint}.
-
-
+The Glint service is designed for OpenStack clouds and the Glance repository with a pluggable architecture to allow support for different cloud types. Through a web browser or command-line interface, the user can identify clouds and control the distribution of images. Glint is currently used with the distributed cloud systems for ATLAS and Belle-II. In this paper, we describe the design and implementation of Glint. The source code is available from the Git repository \cite{glint}.
 
 \section{Design}
 Glint is designed to operate as an OpenStack service. The Glint service is comprised of 4 components. The service component, which actually pushes and pulls data from different Glance repositories; The GUI component, which provides a user friendly interface integrated with OpenStack's Horizon dashboard; The Command Line Interface component, which allows users to try out glint without having to change or add another dashboard; And the Application Programming Interface, which allow developers to create their own tools. Figure~\ref{fig:glintfigure.pdf} depicts a software component model of glint and it's integration with OpenStack. 
@@ -140,15 +97,13 @@ The first Eclipse project is a modified version of OpenStack's Horizon dashboard
 The second Eclipse project includes the API, CLI and the image transfer service. These are developed in python and can use either Django or Paste to serve HTTP requests. The Django-PyDev plugin is used for the project and provides Django related functions to manage the HTTP service component of the software. An API is provided for python to extend the functionality of the Glint service. The CLI is the first extension of the service that uses the API. The CLI is written in python and takes advantage of the ArgParse python module which makes it easier to develop CLI tools. The CLI and the modified Horizon interface are the two methods currently offered to interact with the image distribution service. The CLI and the Horizon interface are independent of each other, for example you can use the service with the CLI without having to install the modified Horizon dashboard.
 
 
-\section{Deployment}
+\section{Installation}
+It is recommended to deploy the Glint service to the same secure machine that the Keystone and Glance services are running. This is because glint maintains a database of user name, passwords and authentication tokens in it's database. So it is important to keep glint on a secure machine. Once glint is installed, you can use it immediately via the CLI. You can also install the modified Horizon dashboard that allows users of the local OpenStack site to add remote sites specific for themselves (i.e., other OpenStack sites the user has credentials on) via web pages provided by glint.  
 
-\subsection{Service Deployment}
-It is recommended to deploy the Glint service to the same secure machine that the Keystone and Glance services are running. This is because glint maintains a database of user name, passwords and authentication tokens in it's database. So it is important to keep glint on a secure machine. Once glint is installed, you can use it immediately via the CLI.
+Glint is available on PyDev as required for deployment via StackForge for OpenStack integration. The latest version is currently deployed for image distribution at the University of Victoria. 
 
-Another deployment strategy is to also install the modified Horizon dashboard. This dashboard allows users of the local OpenStack site to add remote sites specific for themselves (i.e., other OpenStack sites the user has credentials on).  
-
-\subsection{Image Deployment}
-Figure~\ref{fig:glintfigure} depicts a basic deployment of an image using Glint with 3 OpenStack sites. Each OpenStack site is independent and has their own user and tenant management. The credentials of each site is stored on Glint securely and used by the service when the image deployment needs to be changed. For example, the user requested a deployment change such that Image A is to be duplicated from Site 1 to Site2 and Site3. Glint will first authenticate against Site1 using Keystone, then perform a copy operation for Site 2 and Site 3. For a successful copy operation, Glint will first authenticate the Site with credentials found in it's database for that site.
+\section{Image Deployment}
+Figure~\ref{fig:glintfigure} depicts a deployment of an image using Glint with 3 OpenStack sites. Each OpenStack site is independent and has their own user and tenant management. The credentials of each site is stored on Glint securely and used by the service when the image deployment needs to be changed. For example, the user requested a deployment change such that Image A is to be duplicated from Site 1 to Site2 and Site3. Glint will first authenticate against Site1 using Keystone, then perform a copy operation for Site 2 and Site 3. For a successful copy operation, Glint will first authenticate the Site with credentials found in it's database for that site.
 
 \begin{figure}[H]
 \begin{center}
@@ -157,10 +112,40 @@ Figure~\ref{fig:glintfigure} depicts a basic deployment of an image using Glint 
 \end{center}
 \end{figure}
 
+As previously mentioned, there are two tools to manage images using glint. The first method uses a command line interface. The interface is provided with the glint service software and is the minimal installation you require to use the glint service. An additional second method is the modified Horizon dashboard. This method is not required, but simplifies the usage of glint. The modified dashboard, requires the glint service to be installed and registered with your OpenStack site (e.i., register glint's endpoint url with the Keystone service). Figures~\ref{fig:cli}~\ref{fig:horizon} depict a view of images deployed over several openstack sites using the CLI and modified Horizon dashboard respectively.
 
+\begin{figure}[H]
+\begin{center}
+\includegraphics[width=18pc]{images/glint_cli.png}
+\caption{\label{fig:cli}Image Distribution - CLI}
+\end{center}
+\end{figure}
 
-Glint is available on PyDev as required for deployment via StackForge for OpenStack integration. The latest version is currently deployed for image distribution at the University of Victoria. 
+The CLI (c.f., Figure~\ref{fig:cli}) tool is provided as part of the glint service software. It provides the following functionality:
+\begin{itemize}
+\item add/remove remote site URLs from the glint database
+\item add/change site credentials glint uses to valid a users account with a remote site
+\item copy an image from site to site
+\item remove image from a site
+\end{itemize}
 
+\begin{figure}[H]
+\begin{center}
+\includegraphics[width=36pc]{images/glint_horizon.png}
+\caption{\label{fig:horizon}Image Distribution -Horzion }
+\end{center}
+\end{figure}
+
+The modified Horizon dashboard (c.f., Figure~\ref{fig:horizon}) integrates glint web pages into OpenStack dashboard. The pages are added as tabs under the Images management page. The modified dashboard extends the Image management page which is used with the Glance Service to manage local images. Glint adds two tabs to this section. The first is the Remote Repositories tab. Users can add remote OpenStack sites and their remote credentials to the glint service. The second is the Image Distribution tab. This page allows users to select where they want images to be copied or removed from. The left hand column list names of images, each column to the left will be a remote site with a marked check-box if the image is on that site. If an image is not on a site, then the check-box will be unmarked in its corresponding site column. For example, from figure~\ref{fig:horizon} there is an image name 'Cirros 2', according the the columns, the 'Cirros 2' image is found on the OpenStack site 'TestSite', but is not found on the OpenStack sites 'Mosue' or 'Chameleon'. 
+
+\section{Future Developments}
+Currently we are moving forward with getting Glint adopted into StackForge as a first step to integration into OpenStack. We are also moving to include Amazon EC2 sites as Remote sites for image deployment. The primary issue is moving from to and from Amazon's AMI image format to formats supported by OpenStack. 
+
+\section{Summary}
+Glint has proven useful for image management in the ATLAS and BELLE projects, especially when the number of sites gets large. The potential for Glint as an Image Federation service is promising. The benefits are clear to system administrators that have to manage image deployment over several independent clouds. 
+
+\section*{Acknowledgements}
+The support of CANARIE, CERN, Compute Canada, the Natural Sciences and Engineering Research Council.
 %%% \newpage
 
 \section*{References}
