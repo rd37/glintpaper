@@ -94,25 +94,25 @@ The code is managed within 2 Eclipse projects using the PyDev and Git plugins. T
 
 The first Eclipse project is a modified version of OpenStack's Horizon dashboard. This dashboard includes pages relevant to image distribution. Web pages in Horizon are described with python classes and use Django's powerful templating engine to provide a uniform presentation to the user. There are two extra pages added to provide image distribution. The first page allows users to add remote sites and add credentials to access remote sites. The second page allows users to view all images on all sites, and provides an interface to add or remove selected images from any site.
 
-The second Eclipse project includes the API, CLI and the image transfer service. These are developed in python and can use either Django or Paste to serve HTTP requests. The Django-PyDev plugin is used for the project and provides Django related functions to manage the HTTP service component of the software. An API is provided for python to extend the functionality of the Glint service. The CLI is the first extension of the service that uses the API. The CLI is written in python and takes advantage of the ArgParse python module which makes it easier to develop CLI tools. The CLI and the modified Horizon interface are the two methods currently offered to interact with the image distribution service. The CLI and the Horizon interface are independent of each other, for example you can use the service with the CLI without having to install the modified Horizon dashboard.
+The second Eclipse project includes the API, CLI and the image transfer service. These are developed in python and can use either Django or Paste to serve HTTP requests. The Django-PyDev plugin is used for the project and provides Django related functions to manage the HTTP service component of the software. An API is provided for python to extend the functionality of the Glint service. The CLI is the first extension of the service that uses the API. The CLI is written in python and takes advantage of the 'ArgParse' python module which makes it easier to develop CLI tools. The CLI and the modified Horizon interface are the two methods currently offered to interact with the image distribution service. The CLI and the Horizon interface are independent of each other, for example you can use the service with the CLI without having to install the modified Horizon dashboard.
 
 
 \section{Installation}
 It is recommended to deploy the Glint service to the same secure machine that the Keystone and Glance services are running. This is because glint maintains a database of user name, passwords and authentication tokens in it's database. So it is important to keep glint on a secure machine. Once glint is installed, you can use it immediately via the CLI. You can also install the modified Horizon dashboard that allows users of the local OpenStack site to add remote sites specific for themselves (i.e., other OpenStack sites the user has credentials on) via web pages provided by glint.  
 
-Glint is available on PyDev as required for deployment via StackForge for OpenStack integration. The latest version is currently deployed for image distribution at the University of Victoria. 
+Glint is available on PyPI~\cite{pypi} as required for deployment via StackForge for OpenStack integration. You can also install it from our github repository~\cite{glint}. The latest version is currently deployed for image distribution at the University of Victoria. 
 
 \section{Image Deployment}
-Figure~\ref{fig:glintfigure} depicts a deployment of an image using Glint with 3 OpenStack sites. Each OpenStack site is independent and has their own user and tenant management. The credentials of each site is stored on Glint securely and used by the service when the image deployment needs to be changed. For example, the user requested a deployment change such that Image A is to be duplicated from Site 1 to Site2 and Site3. Glint will first authenticate against Site1 using Keystone, then perform a copy operation for Site 2 and Site 3. For a successful copy operation, Glint will first authenticate the Site with credentials found in it's database for that site.
+Figure~\ref{fig:glintfigure} depicts a deployment of an image using Glint with 3 OpenStack sites. Each OpenStack site is independent and has their own user and tenant management. The credentials of each site is stored on Glint securely and used by the service when the image deployment needs to be changed. For example, a user requests a deployment change such that Image A is to be duplicated from Site 1 to Site2 and Site3. Glint will first authenticate against Site1 using Keystone, then perform a copy operation for Site 2 and Site 3. For a successful copy operation, Glint will first authenticate the Site with credentials found in it's database for that site.
 
 \begin{figure}[H]
 \begin{center}
-\includegraphics[width=36pc]{images/archglint.pdf}
+\includegraphics[width=24pc]{images/archglint.pdf}
 \caption{\label{fig:glintfigure}Image Distribution }
 \end{center}
 \end{figure}
 
-As previously mentioned, there are two tools to manage images using glint. The first method uses a command line interface. The interface is provided with the glint service software and is the minimal installation you require to use the glint service. An additional second method is the modified Horizon dashboard. This method is not required, but simplifies the usage of glint. The modified dashboard, requires the glint service to be installed and registered with your OpenStack site (e.i., register glint's endpoint url with the Keystone service). Figures~\ref{fig:cli}~\ref{fig:horizon} depict a view of images deployed over several openstack sites using the CLI and modified Horizon dashboard respectively.
+As previously mentioned, there are two tools to manage images using glint. The first method uses a command line interface, and is part of the Glint service. The second method is the modified Horizon dashboard. This method is not required, but simplifies the usage of glint. The modified dashboard, requires the glint service to be installed and registered with your OpenStack site (e.i., register glint's endpoint url with the Keystone service). Figures~\ref{fig:cli},~\ref{fig:horizon} depict a view of images deployed over several OpenStack sites using the CLI and modified Horizon dashboard respectively.
 
 \begin{figure}[H]
 \begin{center}
@@ -136,13 +136,13 @@ The CLI (c.f., Figure~\ref{fig:cli}) tool is provided as part of the glint servi
 \end{center}
 \end{figure}
 
-The modified Horizon dashboard (c.f., Figure~\ref{fig:horizon}) integrates glint web pages into OpenStack dashboard. The pages are added as tabs under the Images management page. The modified dashboard extends the Image management page which is used with the Glance Service to manage local images. Glint adds two tabs to this section. The first is the Remote Repositories tab. Users can add remote OpenStack sites and their remote credentials to the glint service. The second is the Image Distribution tab. This page allows users to select where they want images to be copied or removed from. The left hand column list names of images, each column to the left will be a remote site with a marked check-box if the image is on that site. If an image is not on a site, then the check-box will be unmarked in its corresponding site column. For example, from figure~\ref{fig:horizon} there is an image name 'Cirros 2', according the the columns, the 'Cirros 2' image is found on the OpenStack site 'TestSite', but is not found on the OpenStack sites 'Mosue' or 'Chameleon'. 
+The modified Horizon dashboard (c.f., Figure~\ref{fig:horizon}) integrates Glint web pages into the OpenStack dashboard. The pages are added as tabs under the Images management page. The modified dashboard extends the Image management page which is used with the Glance Service to manage local images. Glint adds two tabs to this section. The first is the Remote Repositories tab. Users can add remote OpenStack sites and their remote credentials to the glint service. The second is the Image Distribution tab. This page allows users to select where they want images to be copied or removed from. The left hand column list names of images, each column to the left will be a remote site with a marked check-box if the image is on that site. If an image is not on a site, then the check-box will be unmarked in its corresponding site column. For example, from figure~\ref{fig:horizon} there is an image name 'Cirros 2', the 'Cirros 2' image is found on the OpenStack site 'TestSite', but is not found on the OpenStack sites 'Mosue' or 'Chameleon'. 
 
 \section{Future Developments}
-Currently we are moving forward with getting Glint adopted into StackForge as a first step to integration into OpenStack. We are also moving to include Amazon EC2 sites as Remote sites for image deployment. The primary issue is moving from to and from Amazon's AMI image format to formats supported by OpenStack. 
+Currently we are moving forward with getting Glint adopted into StackForge as a first step to integration into OpenStack. We are also moving to include Amazon EC2 sites as Remote sites for image deployment. The primary issue is moving from Amazon's AMI image format to formats supported by OpenStack. 
 
 \section{Summary}
-Glint has proven useful for image management in the ATLAS and BELLE projects, especially when the number of sites gets large. The potential for Glint as an Image Federation service is promising. The benefits are clear to system administrators that have to manage image deployment over several independent clouds. 
+Glint has proven useful for image management in the ATLAS and BELLE projects at the University of Victoria, especially when the number of sites gets large. The potential for Glint as an Image Federation service is promising. The benefits are clear to system administrators that have to manage image deployment over several independent clouds. 
 
 \section*{Acknowledgements}
 The support of CANARIE, CERN, Compute Canada, the Natural Sciences and Engineering Research Council.
@@ -172,6 +172,8 @@ Ryan CHEP talk
 \bibitem{sobie-chep}
 Sobie Belle-II talk
 
+\bibitem{pypi}
+https://pypi.python.org/pypi/glint-service/2013.2.4.12.dev
 
 \bibitem{glint}
 {\it Glint}, a system for managing VM images on multiple clouds.

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013) (format=pdflatex 2013.5.30)  17 MAY 2015 17:27
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013) (format=pdflatex 2013.5.30)  17 MAY 2015 17:59
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -205,14 +205,14 @@ File: images/glintdist.pdf Graphic file (type pdf)
 <use images/glintdist.pdf>
 Package pdftex.def Info: images/glintdist.pdf used on input line 76.
 (pdftex.def)             Requested size: 432.0pt x 150.06635pt.
- [4 <./images/glintsitecred.pdf> <./images/glintdist.pdf>] <images/archglint.pd
-f, id=57, 512.91624pt x 381.425pt>
+ [4 <./images/glintsitecred.pdf> <./images/glintdist.pdf>] [5] <images/archglin
+t.pdf, id=60, 512.91624pt x 381.425pt>
 File: images/archglint.pdf Graphic file (type pdf)
 
 <use images/archglint.pdf>
 Package pdftex.def Info: images/archglint.pdf used on input line 110.
-(pdftex.def)             Requested size: 432.0pt x 321.25618pt.
- [5]
+(pdftex.def)             Requested size: 288.0pt x 214.1669pt.
+
 <images/glint_cli.png, id=61, 415.5525pt x 529.98pt>
 File: images/glint_cli.png Graphic file (type png)
 
@@ -240,10 +240,10 @@ LaTeX Font Warning: Size substitutions with differences
 
  ) 
 Here is how much of TeX's memory you used:
- 1986 strings out of 493315
- 27173 string characters out of 6137904
- 90854 words of memory out of 5000000
- 5428 multiletter control sequences out of 15000+600000
+ 1987 strings out of 493315
+ 27179 string characters out of 6137904
+ 90857 words of memory out of 5000000
+ 5429 multiletter control sequences out of 15000+600000
  8712 words of font info for 31 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
  37i,5n,23p,1096b,311s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -256,7 +256,7 @@ ocal/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/loc
 al/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/loca
 l/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmti9.pfb></usr/local/
 texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt9.pfb>
-Output written on glpaper.pdf (8 pages, 357703 bytes).
+Output written on glpaper.pdf (8 pages, 358996 bytes).
 PDF statistics:
  133 PDF objects out of 1000 (max. 8388607)
  94 compressed objects within 1 object stream
