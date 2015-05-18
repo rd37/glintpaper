@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013) (format=pdflatex 2013.5.30)  17 MAY 2015 16:48
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013) (format=pdflatex 2013.5.30)  17 MAY 2015 17:27
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -83,11 +83,7 @@ Package: float 2001/11/08 v1.3d Float enhancements (AL)
 \float@box=\box27
 \@float@everytoks=\toks17
 \@floatcapt=\box28
-) (./glpaper.aux
-
-LaTeX Warning: Label `fig:glintfigure' multiply defined.
-
-)
+) (./glpaper.aux)
 \openout1 = `glpaper.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 5.
@@ -102,7 +98,8 @@ LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 5.
 LaTeX Font Info:    ... okay on input line 5.
 LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 5.
 LaTeX Font Info:    ... okay on input line 5.
- (/usr/local/texlive/2013/texmf-dist/tex/context/base/supp-pdf.mkii
+
+(/usr/local/texlive/2013/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count97
 \scratchdimen=\dimen111
@@ -174,10 +171,6 @@ LaTeX Font Warning: Font shape `OT1/cmr/bx/n' in size <18.06749> not available
 [1
 
 {/usr/local/texlive/2013/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-
-LaTeX Warning: Reference `fig:glintfigure.pdf' on page 2 undefined on input lin
-e 36.
-
 <images/glintdesign.pdf, id=13, 616.3025pt x 197.73875pt>
 File: images/glintdesign.pdf Graphic file (type pdf)
 
@@ -245,17 +238,11 @@ Package pdftex.def Info: images/glint_horizon.png used on input line 134.
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 0.78749pt have occurred.
 
-
-LaTeX Warning: There were undefined references.
-
-
-LaTeX Warning: There were multiply-defined labels.
-
  ) 
 Here is how much of TeX's memory you used:
  1986 strings out of 493315
- 27174 string characters out of 6137904
- 90885 words of memory out of 5000000
+ 27173 string characters out of 6137904
+ 90854 words of memory out of 5000000
  5428 multiletter control sequences out of 15000+600000
  8712 words of font info for 31 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
@@ -269,7 +256,7 @@ ocal/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/loc
 al/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/loca
 l/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmti9.pfb></usr/local/
 texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt9.pfb>
-Output written on glpaper.pdf (8 pages, 357978 bytes).
+Output written on glpaper.pdf (8 pages, 357703 bytes).
 PDF statistics:
  133 PDF objects out of 1000 (max. 8388607)
  94 compressed objects within 1 object stream
